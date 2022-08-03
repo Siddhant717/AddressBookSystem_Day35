@@ -10,7 +10,7 @@ namespace AddressBookSystem
             while (true)
             {
                 Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact\n3)Editing Contact\n4)Delete Contact" +
-                    "\n5)Search Contact by city\n6)Search Contact by state");
+                    "\n5)Search Contact by city\n6)Search Contact by state\n7)Check Size of AddressBook");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -31,6 +31,9 @@ namespace AddressBookSystem
                         break;
                     case 6:
                         contactdetails.SearchContactByState();
+                        break;
+                    case 7:
+                        contactdetails.SizeOfAddressBook();
                         break;
 
                     default:

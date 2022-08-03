@@ -152,11 +152,11 @@ namespace AddressBookSystem
                 Console.WriteLine("Email " + List.Email);
             }
         }
-        public void SearchContactByState()
+        public  void SearchContactByState()
         {
 
             Console.WriteLine("__________________________");
-            Console.WriteLine("Enter the City : ");
+            Console.WriteLine("Enter the State : ");
             string state = Console.ReadLine();
             
             var result = addressbook.FindAll(x => x.State == state);
@@ -167,7 +167,7 @@ namespace AddressBookSystem
             }
             foreach (var List in addressbook)
             {
-                Console.WriteLine("Following contacts are available belongs to " + List.City);
+                Console.WriteLine("Following contacts are available belongs to " + List.State);
                 Console.WriteLine("FirstName " + List.FirstName);
                 Console.WriteLine("LastName " + List.LastName);
                 Console.WriteLine("Address " + List.Address);
@@ -175,6 +175,21 @@ namespace AddressBookSystem
                 Console.WriteLine("PhoneNumber " + List.PhoneNumber);
                 Console.WriteLine("Email " + List.Email);
             }
+        }
+        public  void SizeOfAddressBook()
+        {
+            if (addressbook.Count == 0)
+            {
+                Console.WriteLine("Address Book is empty. Press any key to continue.");
+                Console.ReadKey();
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Address Book Size is : " + addressbook.Count);
+            }
+
+           
         }
     }
 }
