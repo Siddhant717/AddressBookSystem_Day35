@@ -10,11 +10,13 @@ namespace AddressBookSystem
             while (true)
             {
                 Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact\n3)Editing Contact\n4)Delete Contact" +
-                    "\n5)Search Contact by city\n6)Search Contact by state\n7)Check Size of AddressBook");
+                    "\n5)Search Contact by city\n6)Search Contact by state\n7)count size of AddressBook\n8)Sort person name alphabetically by city" +
+                    "\n9) Add multiple contacts");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
                     case 1:
+                        
                         contactdetails.AddNewContacts();
                         break;
                     case 2:
@@ -34,6 +36,14 @@ namespace AddressBookSystem
                         break;
                     case 7:
                         contactdetails.SizeOfAddressBook();
+                        break;
+                    case 8:
+                        contactdetails.SortPersonsNameByCity();
+                        break;
+                    case 9:
+                        Console.WriteLine("How many contacts you want to add?");
+                        int n = Convert.ToInt32(Console.ReadLine());
+                        contactdetails.AddMultipleContact(n);
                         break;
 
                     default:

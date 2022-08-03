@@ -9,10 +9,10 @@ namespace AddressBookSystem
     public class AddressBook
     {
         static List<Contact> addressbook = new List<Contact>();
-        Contact contact = new Contact();
+        
         public void AddNewContacts()
         {
-
+            Contact contact = new Contact();
             Console.WriteLine("-------------------------");
             Console.WriteLine("Enter your First name-");
             contact.FirstName = Console.ReadLine();
@@ -32,7 +32,7 @@ namespace AddressBookSystem
             contact.Email = Console.ReadLine();
 
             addressbook.Add(contact);
-
+           
 
         }
         public void Display()
@@ -54,6 +54,9 @@ namespace AddressBookSystem
         }
         public void EditContact()
         {
+
+
+
 
             Console.WriteLine("__________________________");
             Console.WriteLine("For editing a contact enter first name : ");
@@ -175,6 +178,7 @@ namespace AddressBookSystem
                 Console.WriteLine("PhoneNumber " + List.PhoneNumber);
                 Console.WriteLine("Email " + List.Email);
             }
+            
         }
         public  void SizeOfAddressBook()
         {
@@ -191,6 +195,31 @@ namespace AddressBookSystem
 
            
         }
+        public void SortPersonsNameByCity()
+        {
+            Console.WriteLine("Please enter the city name: ");
+            string city = Console.ReadLine();
+            var result = addressbook.FindAll(x => (x.City == city)).OrderBy(x => x.FirstName);
+            Console.WriteLine("All the enteries in AddressBook Sorted Alphabetically :");
+            foreach (var list in result)
+                Console.WriteLine("\nPerson Name : " + list.FirstName +
+                                    "\tCity : " + list.City);
+
+        }
+        public void AddMultipleContact(int n)
+        {
+            while(n>0)
+            {
+                AddNewContacts();
+                n--;
+            }
+        }
+        
+
+
+
+
+
     }
 }
 
