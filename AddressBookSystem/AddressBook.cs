@@ -211,17 +211,18 @@ namespace AddressBookSystem
                 n--;
             }
         }
+        //creating method for adding multiple contacts to addressbook by type and name
         public void AddContactbyType(int n)
         {
             while (n > 0)
             {
-                AddNewContactByType();
+                AddNewContactByNameAndType();
 
                 n--;
             }
         }
         // /Creating the method for Adding new contact - Add Person to Both Family and Friend
-        public  void AddNewContactByType()
+        public void AddNewContactByNameAndType()
         {
 
             Contact contact = new Contact();
@@ -255,7 +256,7 @@ namespace AddressBookSystem
             Console.Write("Enter AddressBook Type: ");
             contact.AddressBookType = Console.ReadLine();
 
-            
+
 
             Console.WriteLine("-------------------");
 
@@ -271,6 +272,7 @@ namespace AddressBookSystem
                                     "\n Count : " + contact.count);
             }
         }
+
 
 
 
