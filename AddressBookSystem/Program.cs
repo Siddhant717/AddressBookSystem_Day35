@@ -9,7 +9,7 @@ namespace AddressBookSystem
             AddressBook contactdetails = new();
             while (true)
             {
-                Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact");
+                Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact\n3)Editing Contact");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -19,7 +19,10 @@ namespace AddressBookSystem
                     case 2:
                         contactdetails.Display();
                         break;
-                    
+                    case 3:
+                        contactdetails.EditContact();
+                        break;
+
                     default:
                         Console.WriteLine("Please Choose From Above Given Options");
                         break;

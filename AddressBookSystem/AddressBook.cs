@@ -52,10 +52,67 @@ namespace AddressBookSystem
             Console.WriteLine("Details added successfully");
 
         }
+        public void EditContact()
+        {
+
+            Console.WriteLine("__________________________");
+            Console.WriteLine("For editing a contact enter first name : ");
+            string Name = Console.ReadLine();
+
+            var result = addressbook.FirstOrDefault(x => x.FirstName == Name);
+            if (result == null)
+            {
+                Console.WriteLine("No such contact exists");
+                return;
+            }
+            Console.WriteLine("Edit a contact\n1. Last Name\n2. Address\n3. City\n4. State\n5. ZipCode\n6. Phone Number\n7. Email Address");
+            int option = Convert.ToInt32(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    Console.WriteLine("Enter your new Last name");
+                    string lastname = Console.ReadLine();
+                    result.LastName = lastname;
+                    break;
+                case 2:
+                    Console.WriteLine("Enter your new Address");
+                    string address = Console.ReadLine();
+                    result.Address = address;
+                    break;
+                case 3:
+
+                    Console.WriteLine("Enter your new city");
+                    string newcity = Console.ReadLine();
+                    result.City = newcity;
+                    break;
+                case 4:
+                    Console.WriteLine("Enter your new State");
+                    string state = Console.ReadLine();
+                    result.State = state;
+                    break;
+                case 5:
+                    Console.WriteLine("Enter your new Zipcode");
+                    int zipcode = Convert.ToInt32(Console.ReadLine());
+                    result.Zipcode = zipcode;
+                    break;
+                case 6:
+                    Console.WriteLine("Enter your new PhoneNumber");
+                    long phonenumber = Convert.ToInt32(Console.ReadLine());
+                    result.PhoneNumber = phonenumber;
+                    break;
+                case 7:
+                    Console.WriteLine("Enter your new Email");
+                    string email = Console.ReadLine();
+                    result.Email = email;
+                    break;
+
+
+            }
+
+        }
     }
+
 }
-
-
 
 
 
