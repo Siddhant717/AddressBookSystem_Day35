@@ -128,8 +128,55 @@ namespace AddressBookSystem
             addressbook.Remove(result);
             Console.WriteLine("Contact deleted successfully");
         }
-    }
+        public void SearchContactByCity()
+        {
 
+            Console.WriteLine("__________________________");
+            Console.WriteLine("Enter the City : ");
+            string city = Console.ReadLine();
+
+            var result = addressbook.FindAll(x => x.City == city);
+            if (result.Count==0)
+            {
+                Console.WriteLine("No such contact exists");
+                return;
+            }
+            foreach (var List in addressbook)
+            {
+                Console.WriteLine("Following contacts are available belongs to " + List.City);
+                Console.WriteLine("FirstName " + List.FirstName);
+                Console.WriteLine("LastName " + List.FirstName);
+                Console.WriteLine("Address " + List.Address);
+                Console.WriteLine("State " + List.State);
+                Console.WriteLine("PhoneNumber " + List.PhoneNumber);
+                Console.WriteLine("Email " + List.Email);
+            }
+        }
+        public void SearchContactByState()
+        {
+
+            Console.WriteLine("__________________________");
+            Console.WriteLine("Enter the City : ");
+            string state = Console.ReadLine();
+            
+            var result = addressbook.FindAll(x => x.State == state);
+            if (result.Count==0)
+            {
+                Console.WriteLine("No such contact exists");
+                return;
+            }
+            foreach (var List in addressbook)
+            {
+                Console.WriteLine("Following contacts are available belongs to " + List.City);
+                Console.WriteLine("FirstName " + List.FirstName);
+                Console.WriteLine("LastName " + List.LastName);
+                Console.WriteLine("Address " + List.Address);
+                Console.WriteLine("City " + List.City);
+                Console.WriteLine("PhoneNumber " + List.PhoneNumber);
+                Console.WriteLine("Email " + List.Email);
+            }
+        }
+    }
 }
 
 
