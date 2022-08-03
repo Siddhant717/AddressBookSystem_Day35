@@ -11,7 +11,7 @@ namespace AddressBookSystem
             {
                 Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact\n3)Editing Contact\n4)Delete Contact" +
                     "\n5)Search Contact by city\n6)Search Contact by state\n7)count size of AddressBook\n8)Sort person name alphabetically by city" +
-                    "\n9) Add multiple contacts");
+                    "\n9) Add multiple contacts\n10) Add contacts by type and name");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -45,6 +45,12 @@ namespace AddressBookSystem
                         int n = Convert.ToInt32(Console.ReadLine());
                         contactdetails.AddMultipleContact(n);
                         break;
+                    case 10:
+                        Console.WriteLine("How many contacts you want to add?");
+                        int num = Convert.ToInt32(Console.ReadLine());
+                        contactdetails.AddContactbyType(num);
+                        break;
+                    
 
                     default:
                         Console.WriteLine("Please Choose From Above Given Options");

@@ -9,7 +9,7 @@ namespace AddressBookSystem
     public class AddressBook
     {
         static List<Contact> addressbook = new List<Contact>();
-        
+
         public void AddNewContacts()
         {
             Contact contact = new Contact();
@@ -32,7 +32,7 @@ namespace AddressBookSystem
             contact.Email = Console.ReadLine();
 
             addressbook.Add(contact);
-           
+
 
         }
         public void Display()
@@ -54,10 +54,6 @@ namespace AddressBookSystem
         }
         public void EditContact()
         {
-
-
-
-
             Console.WriteLine("__________________________");
             Console.WriteLine("For editing a contact enter first name : ");
             string Name = Console.ReadLine();
@@ -139,7 +135,7 @@ namespace AddressBookSystem
             string city = Console.ReadLine();
 
             var result = addressbook.FindAll(x => x.City == city);
-            if (result.Count==0)
+            if (result.Count == 0)
             {
                 Console.WriteLine("No such contact exists");
                 return;
@@ -155,15 +151,15 @@ namespace AddressBookSystem
                 Console.WriteLine("Email " + List.Email);
             }
         }
-        public  void SearchContactByState()
+        public void SearchContactByState()
         {
 
             Console.WriteLine("__________________________");
             Console.WriteLine("Enter the State : ");
             string state = Console.ReadLine();
-            
+
             var result = addressbook.FindAll(x => x.State == state);
-            if (result.Count==0)
+            if (result.Count == 0)
             {
                 Console.WriteLine("No such contact exists");
                 return;
@@ -178,9 +174,9 @@ namespace AddressBookSystem
                 Console.WriteLine("PhoneNumber " + List.PhoneNumber);
                 Console.WriteLine("Email " + List.Email);
             }
-            
+
         }
-        public  void SizeOfAddressBook()
+        public void SizeOfAddressBook()
         {
             if (addressbook.Count == 0)
             {
@@ -193,7 +189,7 @@ namespace AddressBookSystem
                 Console.WriteLine("Address Book Size is : " + addressbook.Count);
             }
 
-           
+
         }
         public void SortPersonsNameByCity()
         {
@@ -208,13 +204,74 @@ namespace AddressBookSystem
         }
         public void AddMultipleContact(int n)
         {
-            while(n>0)
+            while (n > 0)
             {
                 AddNewContacts();
+
                 n--;
             }
         }
-        
+        public void AddContactbyType(int n)
+        {
+            while (n > 0)
+            {
+                AddNewContactByType();
+
+                n--;
+            }
+        }
+        // /Creating the method for Adding new contact - Add Person to Both Family and Friend
+        public  void AddNewContactByType()
+        {
+
+            Contact contact = new Contact();
+            Console.Write("Enter First Name: ");
+            contact.FirstName = Console.ReadLine();
+
+            Console.Write("Enter Last Name: ");
+            contact.LastName = Console.ReadLine();
+
+            Console.Write("Enter Address : ");
+            contact.Address = Console.ReadLine();
+
+            Console.Write("Enter City: ");
+            contact.City = Console.ReadLine();
+
+            Console.Write("Enter State: ");
+            contact.State = Console.ReadLine();
+
+            Console.Write("Enter Zip Code: ");
+            contact.Zipcode = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Mobile Number: ");
+            contact.PhoneNumber = long.Parse(Console.ReadLine());
+
+            Console.Write("Enter E-Mail: ");
+            contact.Email = Console.ReadLine();
+
+            Console.Write("Enter AddressBook Name: ");
+            contact.AddressBookName = Console.ReadLine();
+
+            Console.Write("Enter AddressBook Type: ");
+            contact.AddressBookType = Console.ReadLine();
+
+            
+
+            Console.WriteLine("-------------------");
+
+            addressbook.Add(contact);
+        }
+        public void NumberOfContactPersonCountByType()
+        {
+            Console.WriteLine("Number of Contact persons count by Addresstype: ");
+            var type = addressbook.GroupBy(x => x.AddressBookType).Select(y => new { AddressBookType = y.Key, count = y.Count() });
+            foreach (var contact in type)
+            {
+                Console.WriteLine("\nAddressBook Type :" + contact.AddressBookType +
+                                    "\n Count : " + contact.count);
+            }
+        }
+
 
 
 
