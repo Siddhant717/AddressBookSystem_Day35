@@ -110,6 +110,24 @@ namespace AddressBookSystem
             }
 
         }
+
+        public void DeleteContact()
+        {
+
+            Console.WriteLine("__________________________");
+            Console.WriteLine("Enter the First Name that you want to delete : ");
+            string FirstName = Console.ReadLine();
+
+            var result = addressbook.FirstOrDefault(x => x.FirstName == FirstName);
+            if (result == null)
+            {
+                Console.WriteLine("No such contact exists");
+                return;
+            }
+
+            addressbook.Remove(result);
+            Console.WriteLine("Contact deleted successfully");
+        }
     }
 
 }
