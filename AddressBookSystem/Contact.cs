@@ -17,6 +17,7 @@ namespace AddressBookSystem
         public long PhoneNumber;
         public string Email;
         public string AddressBookName { get; set; }
+
         public string AddressBookType { get; set; }
 
     }
